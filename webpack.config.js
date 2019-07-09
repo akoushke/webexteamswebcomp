@@ -24,42 +24,42 @@ module.exports = {
             presets: ['@babel/preset-env','@babel/preset-react']
           }
         }
-			},
-			{
+      },
+      {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
             options: {
               minimize: true,
-							interpolation: true,
-							removeAttributeQuotes: false
+              interpolation: true,
+              removeAttributeQuotes: false
             }
           }
         ]
-			},
-			{
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
-			},
-			{
-				test: /\.scss$/,
-				use: [
-						'style-loader',
-						'css-loader',
-						'sass-loader'
-				]
-			},
-			{
-				test: /\.(woff(2)?|ttf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
-				use: [{
-						loader: 'file-loader',
-						options: {
-								name: '[name].[ext]',
-								outputPath: 'fonts/'
-						}
-				}]
-			}
+      },
+      {
+        test: /\.scss$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader'
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }]
+      }
     ]
   },
   plugins: [

@@ -6,22 +6,22 @@ import template from './app.html';
 import './app.css';
 
 export default class App extends HTMLElement {
-	constructor() {
-		super();
-	}
+  constructor() {
+    super();
+  }
 
-	connectedCallback() {
-		ReactDOM.render(
-			<Button
-				children={<Icon name='icon-search_12' />}
-				onClick={() => { }}
-				ariaLabel='For the Win'
-				circle
-			/>, this);
-	}
+  connectedCallback() {
+    ReactDOM.render(
+      <Button
+        children={<Icon name='icon-search_12' />}
+        onClick={() => { }}
+        ariaLabel='For the Win'
+        circle
+      />, this);
+  }
 
-	disconnectedCallback() {
-		ReactDOM.unmountComponentAtNode(this);
+  disconnectedCallback() {
+    ReactDOM.unmountComponentAtNode(this);
  }	
 }
 

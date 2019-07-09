@@ -8,32 +8,32 @@ import {createStore} from 'redux';
 import axios from 'axios';
 
 class WebexTeamsAPI {
-	constructor() {
-		this.token = 'Bearer NjgzNWVjMWItYjMyOS00NWIzLTg0MTctNjhkMzRlODE3ZjczMDZmZWJiNTktYjk3_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f';
-		this.axiosInstance = axios.create({
-			baseURL: 'https://api.ciscospark.com/v1',
-			timeout: 1000,
-			headers: {
-				'Content-Type': 'application/json',
-				'authorization':  this.token
-			}
-		});
+  constructor() {
+    this.token = 'Bearer NjgzNWVjMWItYjMyOS00NWIzLTg0MTctNjhkMzRlODE3ZjczMDZmZWJiNTktYjk3_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f';
+    this.axiosInstance = axios.create({
+      baseURL: 'https://api.ciscospark.com/v1',
+      timeout: 1000,
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization':  this.token
+      }
+    });
 
-	}
+  }
 
-	async getPerson(id) {
-		let person = null;
+  async getPerson(id) {
+    let person = null;
 
- 		try {
-			person = await this.axiosInstance.get(`/people/${id}`);
+     try {
+      person = await this.axiosInstance.get(`/people/${id}`);
 
- 		}
-		catch (error) {
-			console.error(error);
-		}
+     }
+    catch (error) {
+      console.error(error);
+    }
 
- 		return person.data;
-	}
+     return person.data;
+  }
 }
 
 
