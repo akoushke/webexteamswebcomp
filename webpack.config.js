@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   stats: 'errors-only',
   entry: {
-    app: path.join(__dirname, 'src/index.js'),
+    app: path.join(__dirname, 'samples/reactJS/src/index.js'),
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -25,6 +25,15 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env','@babel/preset-react']
           }
+        }
+      },
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          cacheDirectory: true,
+          presets: ['@babel/preset-react']
         }
       },
       {
@@ -68,9 +77,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Development',
-      template: path.join(__dirname, 'src/index.html')
-		}),
-		new Dotenv()
+      template: path.join(__dirname, 'samples/reactJS/src/index.html')
+    }),
+    new Dotenv()
   ],
   output: {
     filename: '[name].bundle.js',

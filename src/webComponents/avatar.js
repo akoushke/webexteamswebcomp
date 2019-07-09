@@ -2,9 +2,6 @@ import {Avatar} from '@momentum-ui/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import template from './avatar.html';
-import './avatar.css';
-
 export default class WebexTeamsAvatar extends HTMLElement {
   constructor() {
     super();
@@ -56,7 +53,7 @@ export default class WebexTeamsAvatar extends HTMLElement {
     ReactDOM.unmountComponentAtNode(this);
   }
 
-  disconnectedCallback() { // or adoptedCallback()
+  disconnectedCallback() {
     this.unmount();	
     this.observer.disconnect();
   }	

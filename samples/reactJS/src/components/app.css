@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  margin-top: 1rem;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  border:1px solid black;
+}
+
+.parent-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.toggle-container {
+  display: flex;
+}
+
+.toggle-container label {
+  padding-right: 1rem;
+}

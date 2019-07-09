@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SDKAdapter from '../../adapters/SDKAdapter';
-import APIAdapter from '../../adapters/APIAdapter';
-import JSONAdapter from '../../adapters/JSONAdapter';
-import '../avatar/avatar';
+import SDKAdapter from '../adapters/SDKAdapter';
+import APIAdapter from '../adapters/APIAdapter';
+import JSONAdapter from '../adapters/JSONAdapter';
+import './avatar';
 
 export default class SmartWebexTeamsAvatar extends HTMLElement {
   constructor() {

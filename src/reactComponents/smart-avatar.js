@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import React, {Component} from 'react';
 import {Avatar} from '@momentum-ui/react';
 import ReactDOM from 'react-dom';
