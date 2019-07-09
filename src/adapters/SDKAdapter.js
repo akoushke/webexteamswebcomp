@@ -1,6 +1,6 @@
-import sdk from './sdk';
+import sdk from '../data/sdk';
 
-export default class Adapter {
+export default class SDKAdapter {
 	constructor(callback) {
 		sdk.store.subscribe(async () => {
 			const person = await sdk.store.getState();
@@ -8,7 +8,7 @@ export default class Adapter {
 		});
 	}
 
-	getPerson(id, callback) {
+	getPerson(id) {
 		sdk.store.dispatch({
 			type: 'PERSON_DETAILS',
 			payload: {
@@ -16,4 +16,11 @@ export default class Adapter {
 			}
 		});
 	}
+
+	disconnect() {
+		sdk.disconnect();
+	}
 }
+
+
+
