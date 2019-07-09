@@ -8,7 +8,6 @@ import {createStore} from 'redux';
 
 class WebexTeamsSDK {
   constructor() {
-    this.token = 'NjgzNWVjMWItYjMyOS00NWIzLTg0MTctNjhkMzRlODE3ZjczMDZmZWJiNTktYjk3_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f';
     this.getPerson = this.getPerson.bind(this);
     this.initializeSDK();
   }
@@ -20,7 +19,7 @@ class WebexTeamsSDK {
         appName: 'Webex Teams Web Components'
       },
       credentials: {
-        access_token: this.token
+        access_token: process.env.MY_TOKEN
       }
     };
 

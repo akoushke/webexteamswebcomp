@@ -9,13 +9,12 @@ import axios from 'axios';
 
 class WebexTeamsAPI {
   constructor() {
-    this.token = 'Bearer NjgzNWVjMWItYjMyOS00NWIzLTg0MTctNjhkMzRlODE3ZjczMDZmZWJiNTktYjk3_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f';
     this.axiosInstance = axios.create({
       baseURL: 'https://api.ciscospark.com/v1',
       timeout: 1000,
       headers: {
         'Content-Type': 'application/json',
-        'authorization':  this.token
+        'authorization':  `Bearer ${process.env.MY_TOKEN}`
       }
     });
 

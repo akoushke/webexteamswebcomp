@@ -1,14 +1,14 @@
 import json from '../data/json';
 
 export default class JSONAdapter {
-  constructor(mount) {
-    this.mount = mount;
+  constructor(callback) {
+    this.callback = callback;
   }
 
   async getPerson(id) {
     const person = await json.getPerson(id);
     
-    this.mount(person);
+    this.callback(person);
   }
 }
 
