@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import App from './components/app/app';
+import App from './webComponents/app/app';
 
 
 import './momentum-ui.scss';
