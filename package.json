@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "webpack --mode production",
+    "eslint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,13 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
     "dotenv-webpack": "^1.7.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.2",
+    "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^4.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
@@ -46,6 +54,7 @@
     "@webex/plugin-people": "^1.63.2",
     "@webex/webex-core": "^1.63.2",
     "axios": "^0.19.0",
+    "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

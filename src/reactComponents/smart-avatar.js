@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
-import {Avatar} from '@momentum-ui/react';
-import ReactDOM from 'react-dom';
-
-import SDKAdapter from '../adapters/SDKAdapter';
 import APIAdapter from '../adapters/APIAdapter';
+import {Avatar} from '@momentum-ui/react';
 import JSONAdapter from '../adapters/JSONAdapter';
+import PropTypes from 'prop-types';
+import SDKAdapter from '../adapters/SDKAdapter';
+
+const propTypes = {
+  personID: PropTypes.string.isRequired,
+  adapter: PropTypes.string.isRequired,
+};
 
 export default class SmartWebexTeamsAvatar extends Component {
   constructor(props) {
@@ -17,7 +21,7 @@ export default class SmartWebexTeamsAvatar extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.selectAdapter();
   }
 
@@ -67,3 +71,5 @@ export default class SmartWebexTeamsAvatar extends Component {
     return app;
   }
 }
+
+SmartWebexTeamsAvatar.propTypes = propTypes;

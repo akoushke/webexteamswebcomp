@@ -3,11 +3,9 @@ import person from './person';
 class WebexTeamsAPI {
   constructor() {}
 
-  async getPerson(id) {
+  async getPerson() {
      return person;
   }
 }
-
-
 
 export default new WebexTeamsAPI();

@@ -1,19 +1,19 @@
 import '@babel/polyfill';
-import ReactDOM from 'react-dom';
-import React, {Component, Fragment} from 'react';
-import { ToggleSwitch } from '@momentum-ui/react';
 import './app.css';
 import '../../../../src/webComponents/avatar';
 import '../../../../src/webComponents/smart-avatar';
-
+import React, {Component} from 'react';
 import SmartWebexTeamsAvatar from '../../../../src/reactComponents/smart-avatar';
+import { ToggleSwitch } from '@momentum-ui/react';
+
 
 export default class ReactApp extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      displayWC: false
+      displayWC: false,
+      personID: 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
     };
   }
 
@@ -22,11 +22,11 @@ export default class ReactApp extends Component {
       <div className='container'>
         <h1> Smart Web Components </h1>
         <h3> API Adapter </h3>
-        <wbx-tms-smart-avatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='API' />
+        <wbx-tms-smart-avatar personID={this.state.personID} adapter='API' />
         <h3> SDK Adapter </h3>
-        <wbx-tms-smart-avatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='SDK' />
+        <wbx-tms-smart-avatar personID={this.state.personID} adapter='SDK' />
         <h3> JSON Adapter</h3>
-        <wbx-tms-smart-avatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='JSON'/>
+        <wbx-tms-smart-avatar personID={this.state.personID} adapter='JSON'/>
       </div>
     );
   }
@@ -45,11 +45,11 @@ export default class ReactApp extends Component {
       <div className='container'>
         <h1> Smart React Components </h1>
         <h3> API Adapter </h3>
-        <SmartWebexTeamsAvatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='API' />
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='API' />
         <h3> SDK Adapter </h3>
-        <SmartWebexTeamsAvatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='SDK' />
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='SDK' />
         <h3> JSON Adapter</h3>
-        <SmartWebexTeamsAvatar personID={'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'} adapter='JSON'/>
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='JSON'/>
       </div>
     );
   }

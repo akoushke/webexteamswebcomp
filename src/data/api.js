@@ -1,10 +1,6 @@
-import qs from 'qs';
 import '@webex/plugin-people';
 import '@webex/internal-plugin-mercury';
 import '@webex/plugin-people';
-import {base64} from '@webex/common';
-import SparkCore from '@webex/webex-core';
-import {createStore} from 'redux';
 import axios from 'axios';
 
 class WebexTeamsAPI {
@@ -34,7 +30,5 @@ class WebexTeamsAPI {
      return person.data;
   }
 }
-
-
 
 export default new WebexTeamsAPI();
