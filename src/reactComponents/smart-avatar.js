@@ -16,12 +16,14 @@ export default class SmartWebexTeamsAvatar extends Component {
     this.state = {
       person: undefined
     };
+
+    this.updatePerson = this.updatePerson.bind(this);
   }
 
   componentDidMount() {
-    this.adapter.getPerson(this.personID).then((person) => {
-      this.updatePerson(person);
-    })
+    this.adapter
+      .getPerson(this.personID, this.updatePerson)
+      .then(this.updatePerson);
   }
 
   updatePerson(person) {

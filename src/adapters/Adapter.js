@@ -20,7 +20,7 @@ export default class Adapter {
    * @returns {Promise<PersonObject>}
    * @memberof Adapter
    */
-  getPerson(id) {
+  getPerson(id, onUpdate) {
     return Promise.reject(new Error('getPerson has not been defined'));
   }
 }
