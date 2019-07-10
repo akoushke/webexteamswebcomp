@@ -1,9 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SDKAdapter from '../adapters/SDKAdapter';
+import './avatar';
 import APIAdapter from '../adapters/APIAdapter';
 import JSONAdapter from '../adapters/JSONAdapter';
-import './avatar';
+import SDKAdapter from '../adapters/SDKAdapter';
 
 export default class SmartWebexTeamsAvatar extends HTMLElement {
   constructor() {
@@ -55,12 +53,8 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
     }	
   }
   
-  unmount(){
-    ReactDOM.unmountComponentAtNode(this);
-  }
-
   disconnectedCallback() { // or adoptedCallback()
-    this.unmount();	
+    this.observer.disconnect();	
   }	
 }
 

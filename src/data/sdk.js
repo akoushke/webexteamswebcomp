@@ -1,8 +1,6 @@
-import qs from 'qs';
 import '@webex/plugin-people';
 import '@webex/internal-plugin-mercury';
 import '@webex/plugin-people';
-import {base64} from '@webex/common';
 import SparkCore from '@webex/webex-core';
 import {createStore} from 'redux';
 
@@ -77,20 +75,16 @@ class WebexTeamsSDK {
           src:  state.src,
           status: action.payload
         });
-        break;
       case 'PERSON_DETAILS':
         const person = await this.getPerson(action.payload.id);
         return Object.assign({}, state, {
           src: person.avatar,
           status: 'active'
         })
-        break;
       default:
         return state;
     }
   }
 }
-
-
 
 export default new WebexTeamsSDK();
