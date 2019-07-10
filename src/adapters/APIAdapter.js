@@ -1,16 +1,17 @@
+import Adapter from './Adapter';
+
 import api from '../data/api';
 
-export default class APIAdapter {
-  constructor(callback) {
-    this.callback = callback;
-  }
-
+export default class APIAdapter extends Adapter {
   async getPerson(id) {
     const person = await api.getPerson(id);
-    this.callback(
-      {...person, 
-       src: person.avatar,
-       status: person.status === 'DoNotDisturb' ? 'dnd' : person.status});
+    
+    // Shape the data to the way the smart component needs
+    return {
+      ...person, 
+      src: person.avatar,
+      status: person.status === 'DoNotDisturb' ? 'dnd' : person.status
+    };
   }
 }
 

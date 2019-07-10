@@ -1,14 +1,12 @@
+import Adapter from './Adapter';
+
 import json from '../data/json';
 
-export default class JSONAdapter {
-  constructor(callback) {
-    this.callback = callback;
-  }
-
+export default class JSONAdapter extends Adapter {
   async getPerson(id) {
     const person = await json.getPerson(id);
     
-    this.callback(person);
+    return person;
   }
 }
 

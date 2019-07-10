@@ -23,7 +23,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "sort-imports": "error",
         "no-case-declarations": "off"
     }
 };

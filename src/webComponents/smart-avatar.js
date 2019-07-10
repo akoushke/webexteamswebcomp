@@ -18,27 +18,25 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
   }
 
   selectAdapter(adapterType, personID) {
+    let adapter;
     switch(adapterType) {
       case 'API':
-        const api = new APIAdapter(this.mount.bind(this));
-        
-        api.getPerson(personID);
+        adapter = new APIAdapter();
         break;
 
       case 'SDK':
-        const sdk = new SDKAdapter(this.mount.bind(this));
-        
-        sdk.getPerson(personID);
+        adapter = new SDKAdapter();
         break;
 
       case 'JSON':
-        const json = new JSONAdapter(this.mount.bind(this));
-        
-        json.getPerson(personID);
+        adapter = new JSONAdapter();
         break;
       
       default:
         console.error('Invalid Adapter Type. Valid Types are [API, SDK, JSON]');
+    }
+    if (adapter) {
+      adapter.getPerson(personID).then((person) => this.mount(person));
     }
   }
 
