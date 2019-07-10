@@ -3,8 +3,14 @@ import './app.css';
 import '../../../../src/webComponents/avatar';
 import '../../../../src/webComponents/smart-avatar';
 import React, {Component} from 'react';
+
 import SmartWebexTeamsAvatar from '../../../../src/reactComponents/smart-avatar';
 import { ToggleSwitch } from '@momentum-ui/react';
+
+// Adapters
+import APIAdapter from '../../../../src/adapters/APIAdapter';
+import JSONAdapter from '../../../../src/adapters/JSONAdapter';
+import SDKAdapter from '../../../../src/adapters/SDKAdapter';
 
 
 export default class ReactApp extends Component {
@@ -15,6 +21,10 @@ export default class ReactApp extends Component {
       displayWC: false,
       personID: 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
     };
+
+    this.APIAdapter = new APIAdapter();
+    this.JSONAdapter = new JSONAdapter();
+    this.SDKAdapter = new SDKAdapter();
   }
 
   getWCSmartAvatar() {
@@ -45,11 +55,11 @@ export default class ReactApp extends Component {
       <div className='container'>
         <h1> Smart React Components </h1>
         <h3> API Adapter </h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='API' />
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.APIAdapter} />
         <h3> SDK Adapter </h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='SDK' />
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.SDKAdapter} />
         <h3> JSON Adapter</h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter='JSON'/>
+        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.JSONAdapter} />
       </div>
     );
   }
