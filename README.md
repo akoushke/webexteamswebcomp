@@ -42,6 +42,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Arash Koushkebaghi** - *Initial work* - [akoushke](https://github.com/akoushke)
+* **Adam Weeks** - *Additional work* - [adamweeks](https://github.com/adamweeks)
 
 ## License
 
