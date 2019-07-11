@@ -12,6 +12,7 @@ export default class SDKAdapter extends Adapter {
     });
 
     sdk.getPerson(id);
+
     return observable;
   }
 }
