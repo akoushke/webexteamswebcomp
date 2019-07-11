@@ -5,18 +5,14 @@ import sdk from '../data/sdk';
 
 export default class SDKAdapter extends Adapter {
   getPerson(id) {
-    sdk.getPerson(id);
-
-
-    return new Observable(observer => {
-      // Push the initial value to render
-      observer.next(sdk.store.getState());
-
-      // Also push any changes to re-render 
+    const observable = new Observable(observer => {
       sdk.store.subscribe(() => {
         observer.next(sdk.store.getState());
-      })
-    })
+      });
+    });
+
+    sdk.getPerson(id);
+    return observable;
   }
 }
 

@@ -50,7 +50,7 @@ class WebexTeamsSDK {
       }
     }
     catch (error) {
-      console.error(error);
+      throw Error(error.message);
     }
 
     this.store.dispatch({
