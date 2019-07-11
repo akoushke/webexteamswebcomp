@@ -36,12 +36,16 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
         console.error('Invalid Adapter Type. Valid Types are [API, SDK, JSON]');
     }
     if (adapter) {
-      adapter.getPerson(personID).then((person) => this.mount(person));
+      adapter.getPerson(personID).subscribe(
+        (person) => this.mount(person),
+        (error) => console.error(error),
+        () => {} // subscription has been completed!
+      );
     }
   }
 
   mount(person) {
-    if(person) {
+    if(person && Object.keys(person).length !== 0) {
       this.innerHTML = `
         <wbx-tms-avatar 
           src=${person.src} 
