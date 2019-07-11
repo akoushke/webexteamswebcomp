@@ -40,20 +40,26 @@ class WebexTeamsSDK {
   }
 
   async getPerson(id) {
-      let person = null;
-  
-      try {
-        const people = await this.sdk.people.list({id});
-  
-        if (!!people.items && people.items.length > 0) {
-          [person] = people.items;
-        }
+    let person = null;
+
+    try {
+      const people = await this.sdk.people.list({id});
+
+      if (!!people.items && people.items.length > 0) {
+        [person] = people.items;
       }
-      catch (error) {
-        console.error(error);
+    }
+    catch (error) {
+      console.error(error);
+    }
+
+    this.store.dispatch({
+      type: 'PERSON_DETAILS',
+      payload: {
+        src: person.avatar,
+        status: 'presenting'
       }
-  
-      return person;
+    });
   }
 
   connect() {
@@ -66,20 +72,18 @@ class WebexTeamsSDK {
     this.sdk.internal.device.unregister();
   }
 
-  async createReducer(state = {}, action)  {
+  createReducer(state = {}, action)  {
     
     switch(action.type) {
       case 'STATUS_UPDATE':
-        state = await state;
         return Object.assign({}, state, {
           src:  state.src,
           status: action.payload
         });
       case 'PERSON_DETAILS':
-        const person = await this.getPerson(action.payload.id);
         return Object.assign({}, state, {
-          src: person.avatar,
-          status: 'active'
+          src: action.payload.src,
+          status: action.payload.status
         })
       default:
         return state;

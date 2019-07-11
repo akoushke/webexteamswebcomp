@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import {Observable} from 'rxjs';
 
 /**
  * This is the base class that adapters will inherit from.
@@ -21,6 +22,8 @@ export default class Adapter {
    * @memberof Adapter
    */
   getPerson(id) {
-    return Promise.reject(new Error('getPerson has not been defined'));
+    return new Observable(() => {
+        throw new Error('getPerson has not been defined.')
+    });
   }
 }

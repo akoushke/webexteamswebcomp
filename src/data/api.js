@@ -2,6 +2,8 @@ import '@webex/plugin-people';
 import '@webex/internal-plugin-mercury';
 import '@webex/plugin-people';
 import axios from 'axios';
+import {from} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 class WebexTeamsAPI {
   constructor() {
@@ -19,15 +21,14 @@ class WebexTeamsAPI {
   async getPerson(id) {
     let person = null;
 
-     try {
+    try {
       person = await this.axiosInstance.get(`/people/${id}`);
-
-     }
-    catch (error) {
+    }
+    catch(error) {
       console.error(error);
     }
 
-     return person.data;
+    return person.data;
   }
 }
 

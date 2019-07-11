@@ -30,6 +30,8 @@ Moreover, this project contain another type of components as `Smart React Compon
 * [Web Component](https://www.webcomponents.org/introduction) - used as a main framework
 * [ReactJS](https://reactjs.org) - used as an additional third party framework
 * [Webpack](https://webpack.js.org/) - Used to compile, serve and bundle the application
+* [Redux](https://redux.js.org/) - Used to store and mange the state
+* [RxJS](https://rxjs-dev.firebaseapp.com/guide/overview) - Used to stream data
 
 ## Contributing
 
