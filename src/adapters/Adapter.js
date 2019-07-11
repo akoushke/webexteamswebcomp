@@ -18,7 +18,7 @@ export default class Adapter {
    * 
    * @param {String} id - ID of person to get
    * 
-   * @returns {Promise<PersonObject>}
+   * @returns {Observable<PersonObject>}
    * @memberof Adapter
    */
   getPerson(id) {

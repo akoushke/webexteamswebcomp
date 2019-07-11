@@ -6,6 +6,7 @@ import SDKAdapter from '../adapters/SDKAdapter';
 export default class SmartWebexTeamsAvatar extends HTMLElement {
   constructor() {
     super();
+    this.getPersonSubscription = null;
     this.observer = new MutationObserver(() => this.mount());
     this.observer.observe(this, {attributes: true});
   }
@@ -36,7 +37,7 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
         console.error('Invalid Adapter Type. Valid Types are [API, SDK, JSON]');
     }
     if (adapter) {
-      adapter.getPerson(personID).subscribe(
+      this.getPersonSubscription = adapter.getPerson(personID).subscribe(
         (person) => this.mount(person),
         (error) => console.error(error),
         () => {} // subscription has been completed!
@@ -45,7 +46,7 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
   }
 
   mount(person) {
-    if(person && Object.keys(person).length !== 0) {
+    if(person) {
       this.innerHTML = `
         <wbx-tms-avatar 
           src=${person.src} 
@@ -57,6 +58,7 @@ export default class SmartWebexTeamsAvatar extends HTMLElement {
   
   disconnectedCallback() { // or adoptedCallback()
     this.observer.disconnect();	
+    this.getPersonSubscription.unsubscribe();
   }	
 }
 

@@ -25,7 +25,7 @@ class WebexTeamsAPI {
       person = await this.axiosInstance.get(`/people/${id}`);
     }
     catch(error) {
-      console.error(error);
+      throw Error(error.message);
     }
 
     return person.data;
