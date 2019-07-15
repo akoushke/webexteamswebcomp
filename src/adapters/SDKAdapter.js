@@ -1,22 +1,36 @@
 import Adapter from './Adapter';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 
 import sdk from '../data/sdk';
 
 export default class SDKAdapter extends Adapter {
+  constructor() {
+    super();
+
+    this.personSubject = new Subject();
+    this.messageSubject = new Subject();
+    this.getState();
+  }
+
+  getState() {
+    sdk.store.subscribe(() => {
+      const newChange = sdk.store.getState();
+
+      if(newChange.type === 'PERSON')
+        this.personSubject.next(newChange); 
+      else
+        this.messageSubject.next(newChange);
+    })
+  }
+
   getPerson(id) {
     sdk.getPerson(id);
 
+    return this.personSubject;
+  }
 
-    return new Observable(observer => {
-      // Push the initial value to render
-      observer.next(sdk.store.getState());
-
-      // Also push any changes to re-render 
-      sdk.store.subscribe(() => {
-        observer.next(sdk.store.getState());
-      })
-    })
+  ListenToIncomingMessage() {
+    return this.messageSubject;
   }
 }
 

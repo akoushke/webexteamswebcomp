@@ -1,0 +1,8 @@
+.footer {
+  display: block;
+  flex-direction: column;
+  width: 100%;
+  max-width: 85rem;
+  padding: 0 0 1rem 0;
+  background-color: #24282B;
+}

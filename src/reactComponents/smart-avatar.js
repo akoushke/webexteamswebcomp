@@ -12,8 +12,8 @@ export default class SmartWebexTeamsAvatar extends Component {
     super(props);
 
     this.personID = props.personID;
-    this._isMounted = false;
     this.adapter = props.adapter;
+    this.getPersonSubscription = null;
     this.state = {
       person: undefined
     };
@@ -21,7 +21,7 @@ export default class SmartWebexTeamsAvatar extends Component {
 
   componentDidMount() {
     this._isMounted = true;
-    this.adapter.getPerson(this.personID)
+    this.getPersonSubscription = this.adapter.getPerson(this.personID)
       .subscribe(
         person => this.updatePerson(person),
         error => console.error(error),
@@ -30,13 +30,10 @@ export default class SmartWebexTeamsAvatar extends Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
+    this.getPersonSubscription.unsubscribe();
   }
 
   updatePerson(person) {
-    // Common shared adapters will even change the 
-    // state of the unmounted component for this demo
-    if(this._isMounted)
       this.setState({
         person
       });

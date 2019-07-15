@@ -1,11 +1,14 @@
 import '@babel/polyfill';
 import './app.css';
 import '../../../../src/webComponents/avatar';
+import '../../../../src/webComponents/footer';
+import '../../../../src/webComponents/topBar';
 import '../../../../src/webComponents/smart-avatar';
+import '../../../../src/webComponents/smart-alert';
+
 import React, {Component} from 'react';
 
 import SmartWebexTeamsAvatar from '../../../../src/reactComponents/smart-avatar';
-import { ToggleSwitch } from '@momentum-ui/react';
 
 // Adapters
 import APIAdapter from '../../../../src/adapters/APIAdapter';
@@ -17,9 +20,9 @@ export default class ReactApp extends Component {
   constructor(props) {
     super(props);
 
+    this.personID = 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
     this.state = {
       displayWC: false,
-      personID: 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
     };
 
     this.APIAdapter = new APIAdapter();
@@ -32,11 +35,11 @@ export default class ReactApp extends Component {
       <div className='container'>
         <h1> Smart Web Components </h1>
         <h3> API Adapter </h3>
-        <wbx-tms-smart-avatar personID={this.state.personID} adapter='API' />
+        <wbx-tms-smart-avatar personID={this.personID} adapter='API' />
         <h3> SDK Adapter </h3>
-        <wbx-tms-smart-avatar personID={this.state.personID} adapter='SDK' />
+        <wbx-tms-smart-avatar personID={this.personID} adapter='SDK' />
         <h3> JSON Adapter</h3>
-        <wbx-tms-smart-avatar personID={this.state.personID} adapter='JSON'/>
+        <wbx-tms-smart-avatar personID={this.personID} adapter='JSON'/>
       </div>
     );
   }
@@ -55,11 +58,11 @@ export default class ReactApp extends Component {
       <div className='container'>
         <h1> Smart React Components </h1>
         <h3> API Adapter </h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.APIAdapter} />
+        <SmartWebexTeamsAvatar personID={this.personID} adapter={this.APIAdapter} />
         <h3> SDK Adapter </h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.SDKAdapter} />
+        <SmartWebexTeamsAvatar personID={this.personID} adapter={this.SDKAdapter} />
         <h3> JSON Adapter</h3>
-        <SmartWebexTeamsAvatar personID={this.state.personID} adapter={this.JSONAdapter} />
+        <SmartWebexTeamsAvatar personID={this.personID} adapter={this.JSONAdapter} />
       </div>
     );
   }
@@ -73,20 +76,11 @@ export default class ReactApp extends Component {
   render() {
     return(
       <div className='parent-container'>
-        <div className='toggle-container'>
-          <label> Smart React Components </label>
-          <ToggleSwitch 
-            checked={this.state.displayWC}
-            onChange={this.checkHandler.bind(this)}
-            htmlId='toggleSwitch'
-          />
-          <label> Smart Web Components </label>
-        </div>
-        {this.state.displayWC && this.getWCAvatar()}
-        {this.state.displayWC && this.getWCSmartAvatar()}
-        {!this.state.displayWC && this.getReactSmartAvatar()}
-      </div
-    >);
+         <wbx-tms-top-bar />
+         <wbx-tms-smart-alerts />
+         <wbx-tms-footer className='footer'/>
+      </div>
+    );
 
   }
 }

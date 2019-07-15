@@ -9,15 +9,28 @@
 
 .parent-container {
   display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+}
+
+wbx-tms-footer {
+  display: block;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+}
+
+wbx-tms-smart-alerts {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1rem;
-}
-
-.toggle-container {
-  display: flex;
-}
-
-.toggle-container label {
-  padding-right: 1rem;
+  overflow-y: auto;
+  padding: 1rem 0;
+  max-height: 42rem;
 }
