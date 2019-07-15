@@ -1,11 +1,6 @@
-/* iOS overriding style */
-.btn-click {
-	background-color:#5eccff;
-}
-
-
+/* Android overriding style */
 .platform-info::after {
-	content: 'ios';
+	content: 'electron';
 }
 
 .container {
@@ -19,7 +14,6 @@
 
 .parent-container {
   display: flex;
-  position: relative;
   flex-direction: column;
   width: 100%;
 }

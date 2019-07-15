@@ -65,7 +65,7 @@ const MODULE = {
 function createPlugins(template) {
   return [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['!css/', '!img/' , '!cordova_plugin.js', '!cordova.js' , '!template/']
+      cleanOnceBeforeBuildPatterns: ['!css/', '!img/' , '!cordova_plugin.js', '!cordova.js' , '!template/', 'dist/']
     }),
     new HtmlWebpackPlugin({
       title: 'Development',
@@ -78,7 +78,10 @@ function createPlugins(template) {
 module.exports = [
   {
     name: 'BROWSER',
-    cache: true,
+    cache: false,
+    node: {
+      fs: 'empty'
+    },
     mode: 'development',
     stats: 'errors-only',
     devtool: 'inline-source-map',
@@ -94,7 +97,10 @@ module.exports = [
   },
   {
     name: 'MOBILE',
-    cache: true,
+    cache: false,
+    node: {
+      fs: 'empty'
+    },
     mode: 'development',
     stats: 'errors-only',
     devtool: 'inline-source-map',

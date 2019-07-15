@@ -1,11 +1,11 @@
-/* iOS overriding style */
+/* Android overriding style */
 .btn-click {
-	background-color:#5eccff;
+	background-color: #f46e42;
 }
 
 
 .platform-info::after {
-	content: 'ios';
+	content: 'android';
 }
 
 .container {
@@ -19,7 +19,6 @@
 
 .parent-container {
   display: flex;
-  position: relative;
   flex-direction: column;
   width: 100%;
 }

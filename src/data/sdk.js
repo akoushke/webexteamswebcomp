@@ -1,4 +1,6 @@
 import '@webex/plugin-people';
+import '@webex/plugin-messages';
+import '@webex/plugin-messages';
 import '@webex/internal-plugin-mercury';
 import SparkCore from '@webex/webex-core';
 import {createStore} from 'redux';
@@ -56,9 +58,10 @@ class WebexTeamsSDK {
     this.sdk.internal.mercury.on(
       'event:conversation.activity',
       async (event) => {
+        const uuid = this.getRoomUUID('Y2lzY29zcGFyazovL3VzL1JPT00vMGNiOTQxZjAtNmRmYS0xMWU5LWEzYWItZDc0M2RlMjkxOWVm');
 
         // To retrieve messages for a targeted room and only when there is a new message
-        if(event.data.activity.verb === 'post') {
+        if(event.data.activity.target.id === uuid && event.data.activity.verb === 'post') {
           const message = await this.getMessage(this.getMessageID(event.data.activity.id));
           const payload = {
             personName: event.data.activity.actor.displayName,
@@ -123,13 +126,13 @@ class WebexTeamsSDK {
     let message = null;
 
     try {
-      message = await this.axiosInstance.get(`/messages/${id}`);
+      message = await this.sdk.messages.get(id);
     }
     catch(error) {
       throw Error(error.message);
     }
 
-    return message.data;
+    return message;
   }
 
   connect() {

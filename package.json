@@ -4,9 +4,9 @@
   "description": "Webex Teams Components",
   "main": "./src/index.js",
   "scripts": {
-    "start:mobile": "node scripts/start/mobile.js",
+    "start:cordova": "node scripts/start/cordova.js",
     "start:react": "node scripts/start/react.js",
-    "build:mobile": "node scripts/build/mobile.js && mv samples/cordova/www/app.js samples/cordova/www/js",
+    "build:cordova": "node scripts/build/cordova.js && mv samples/cordova/www/app.js samples/cordova/www/js",
     "build:react": "node scripts/build/react.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

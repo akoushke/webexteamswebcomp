@@ -67,7 +67,7 @@ export default class WebexTeamsFooter extends HTMLElement {
     props = {
       ...props,
       social: <SocialListDefault/>,
-      copyright:'@ 2019 Cisco. All rights reserved',
+      copyright:'Webex Teams!',
       className: 'footer'
     }
 
