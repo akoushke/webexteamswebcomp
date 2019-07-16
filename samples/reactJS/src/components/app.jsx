@@ -78,7 +78,7 @@ export default class ReactApp extends Component {
       <div className='parent-container'>
          <wbx-tms-top-bar />
          <wbx-tms-smart-alerts />
-         <wbx-tms-footer className='footer'/>
+         <wbx-tms-footer />
       </div>
     );
 

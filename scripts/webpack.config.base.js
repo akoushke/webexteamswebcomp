@@ -1,10 +1,21 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const MODULE = {
   rules: [
+    {
+      test: /\.ts$/,
+        use: [{
+            loader: 'awesome-typescript-loader',
+            options: {
+              configFileName: './tsconfig.json'
+            }
+          } , 'angular2-template-loader',
+        ]
+    },
     {
       test: /\.m?js$/,
       exclude: /(node_modules|bower_components)/,
@@ -39,11 +50,12 @@ const MODULE = {
     },
     {
       test: /\.css$/i,
-      use: ['style-loader', 'css-loader'],
+      use: ['to-string-loader','style-loader', 'css-loader'],
     },
     {
       test: /\.scss$/,
       use: [
+         'to-string-loader',
           'style-loader',
           'css-loader',
           'sass-loader'
@@ -64,6 +76,12 @@ const MODULE = {
 
 function createPlugins(template) {
   return [
+    new webpack.ContextReplacementPlugin(
+      // The (\\|\/) piece accounts for path separators in *nix and Windows
+      /angular(\\|\/)core(\\|\/)@angular/,
+      path.join(__dirname, '../samples/angular/src'), // location of your src
+      {} // a map of your routes
+    ),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['!css/', '!img/' , '!cordova_plugin.js', '!cordova.js' , '!template/', 'dist/']
     }),
@@ -77,8 +95,8 @@ function createPlugins(template) {
 
 module.exports = [
   {
-    name: 'BROWSER',
-    cache: false,
+    name: 'React',
+    cache: true,
     node: {
       fs: 'empty'
     },
@@ -96,8 +114,8 @@ module.exports = [
     plugins: createPlugins(path.join(__dirname, '../samples/reactJS/src/index.html'))
   },
   {
-    name: 'MOBILE',
-    cache: false,
+    name: 'Cordova',
+    cache: true,
     node: {
       fs: 'empty'
     },
@@ -114,5 +132,28 @@ module.exports = [
     plugins: createPlugins(
       path.join(__dirname, '../samples/cordova/www/template/index.html')
     ),
+  },
+  {
+    name: 'Angular',
+    stats: 'errors-only',
+    devtool: 'inline-source-map',
+    cache: true,
+    node: {
+      fs: 'empty'
+    },
+    entry: {
+      polyfills: path.join(__dirname, '../samples/angular/src/polyfills.ts'),
+      vendor: path.join(__dirname, '../samples/angular/src/vendor.ts'),
+      app : path.join(__dirname, '../samples/angular/src/main.ts'),
+    },
+    output : {
+      filename: '[name].js',
+      path: path.resolve(__dirname, '../samples/angular/dist')
+    },
+    module: MODULE,
+    plugins: createPlugins(path.join(__dirname, '../samples/angular/src/index.html')),
+    resolve: {
+      extensions: ['.ts', '.js', '.json']
+    },
   }
 ];
