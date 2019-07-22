@@ -1,6 +1,9 @@
 #Runtime data
 dist/
 build/
+fonts/
+platforms/
+plugins/
 coverage/
 pids
 *.pid
@@ -40,6 +43,4 @@ reports/
 !.env.default
 !package.json
 !package-lock.json
-!scripts/build
 node_modules/
-office-manifest/*.xml
