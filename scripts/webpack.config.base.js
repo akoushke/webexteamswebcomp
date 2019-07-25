@@ -17,22 +17,17 @@ const MODULE = {
         ]
     },
     {
-      test: /\.m?js$/,
+      test: /\.(m?js|jsx?)$/,
       exclude: /(node_modules|bower_components)/,
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env','@babel/preset-react']
+          presets: ['@babel/preset-env','@babel/preset-react'],
+          plugins: [
+            "transform-custom-element-classes",
+            "transform-class-properties"
+          ]
         }
-      }
-    },
-    {
-      test: /\.jsx?$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/,
-      query: {
-        cacheDirectory: true,
-        presets: ['@babel/preset-react']
       }
     },
     {
@@ -153,7 +148,7 @@ module.exports = [
     module: MODULE,
     plugins: createPlugins(path.join(__dirname, '../samples/angular/src/index.html')),
     resolve: {
-      extensions: ['.ts', '.js', '.json']
+      extensions: ['.ts', '.js', '.json', '.tsx']
     },
   }
 ];
