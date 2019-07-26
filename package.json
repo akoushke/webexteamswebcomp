@@ -28,7 +28,6 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@momentum-ui/react": "^20.1.0",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
     "angular2-template-loader": "^0.6.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
@@ -79,13 +78,7 @@
     "@angular/router": "^8.1.1",
     "@angular/upgrade": "^8.1.1",
     "@babel/polyfill": "^7.4.4",
-    "@skatejs/element": "0.0.1",
-    "@skatejs/element-lit-html": "0.0.1",
-    "@skatejs/element-react": "0.0.1",
-    "@skatejs/renderer-react": "^0.3.1",
-    "@skatejs/val": "^0.5.0",
     "@types/node": "^12.6.3",
-    "@webcomponents/custom-elements": "^1.2.4",
     "@webex/common": "^1.62.1",
     "@webex/internal-plugin-mercury": "^1.63.2",
     "@webex/plugin-messages": "^1.67.0",
@@ -98,17 +91,6 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "redux": "^4.0.1",
-    "rxjs": "^6.5.2",
-    "skatejs": "^5.2.4"
-  },
-  "cordova": {
-    "platforms": [
-      "android",
-      "ios"
-    ],
-    "plugins": {
-      "cordova-plugin-camera": {},
-      "cordova-plugin-whitelist": {}
-    }
+    "rxjs": "^6.5.2"
   }
 }

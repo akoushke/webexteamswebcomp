@@ -1,37 +1,31 @@
-# Webex Teams Smart Web Component Demo
-Simple and short demo of wrapping cisco styled standard components, AKA [momentum-ui](https://github.com/momentum-design/momentum-ui) react component into a web component to be bound to `Webex Teams data provider`. This demo contains two types of web components:
-
-    1 - Basic Web Components
-    2 - Smart Web Components
-
-`Basic Components` are just set of wrappers for converting the react momentum-ui components into web components.
-
-`Smart Components` are `Basic Components` in addtion to the data provider/adapter.
-
-Moreover, this project contain another type of components as `Smart React Components` where the resulted components are combination of momentum-ui react component bounded to the data providers.
+# momentum-ui Web Components
+Library of moementum-ui web components. This library contains all of the converted react components into web components offered by [momentum-ui](https://github.com/momentum-design/momentum-ui).
 
 ## Getting Started
-
   * clone the project
   * `nvm use`
   * `npm i`
-  * create an `.env` file to store your token as an environment variable
-    ```
-    MY_TOKEN='<YOUR TOKEN>'
-    ```
-  * npm start
 
-### Prerequisites
+  ### Angular
+  * npm run start:angular
 
-  * node `v12.4.0`
-  * nvm  `v0.34.0`
-## Built With
+  ### React
+  Unfortunately, React is one of the worst support (among the great frameworks) for using web components inside of the React framework. Please, look at the following links:
 
-* [Web Component](https://www.webcomponents.org/introduction) - used as a main framework
-* [ReactJS](https://reactjs.org) - used as an additional third party framework
-* [Webpack](https://webpack.js.org/) - Used to compile, serve and bundle the application
-* [Redux](https://redux.js.org/) - Used to store and mange the state
-* [RxJS](https://rxjs-dev.firebaseapp.com/guide/overview) - Used to stream data
+https://reactjs.org/docs/web-components.html
+
+https://custom-elements-everywhere.com/libraries/react/results/results.html
+
+https://github.com/facebook/react/issues/11347
+
+https://addyosmani.com/blog/component-interop-with-react-and-custom-elements/
+
+What does it mean? React only passes string values, and only as attributes (not as properties). You can't pass a function to custom property (it will be serialized to string value). in the future we might come up with some sort of wrappers to transfer the properties properly from the react framework.
+ 
+## To-Do Items
+ 1 - This must become compatible with React
+ 2 - Come up with some sort of error handler for the undefined components
+ 3 - Jest Unit testing
 
 ## Contributing
 
@@ -44,7 +38,6 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Arash Koushkebaghi** - *Initial work* - [akoushke](https://github.com/akoushke)
-* **Adam Weeks** - *Additional work* - [adamweeks](https://github.com/adamweeks)
 
 ## License
 
