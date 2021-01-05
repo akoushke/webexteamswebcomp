@@ -53,7 +53,7 @@
     "@webex/internal-plugin-mercury": "^1.63.2",
     "@webex/plugin-people": "^1.63.2",
     "@webex/webex-core": "^1.63.2",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "react": "^16.8.6",
